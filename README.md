@@ -18,32 +18,81 @@ To write a program to perform linear search and binary search using python progr
 6.	Repeat steps 2 to 5 until low meets high
 ## Program:
 i)	#Use a linear search method to match the item in a list.
-```
-
-
+```python
+def linearSearch(array,n,k):
+    for i in range(0,n):
+        if (array[i]==k):
+            return i
+    return -1
+array = eval(input())
+k = eval(input())
+n=len(array)
+array.sort()
+result = linearSearch(array,n,k)
+if(result==-1):
+    print(array)
+    print('Element not found')
+else:
+    print(array)
+    print("Element found at index: ",result)
 
 ```
 ii)	# Find the element in a list using Binary Search(Iterative Method).
-```
-
-
-
-
-
+```python
+def binarysearchiter(array, k, low,high):
+    while low<=high:
+        mid=low+(high-low)//2
+        if array[mid]==k:
+            return mid
+        elif array[mid]<k:
+            low=mid+1
+        else:
+            high=mid-1
+    return -1
+array = eval(input())
+array.sort()
+k = eval(input())
+result=binarysearchiter(array,k,0,len(array)-1)
+if(result==-1):
+    print(array)
+    print("Element not found")
+else:
+    print(array)
+    print("Element found at index: ",result)
+     
 ```
 iii)	# Find the element in a list using Binary Search (recursive Method).
+```python
+def binarysearch(arr,k,low,high):
+    if high>=low:
+        mid=low+(high-low)//2
+        if arr[mid]==k:
+            return mid
+        elif arr[mid]>k:
+            return binarysearch(arr,k,low,mid-1)
+        else:
+            return binarysearch(arr,k,mid+1,high)
+    else:
+        return -1
+arr=eval(input())
+arr.sort()
+k=eval(input())
+result=binarysearch(arr,k,0,len(arr)-1)
+if (result==-1):
+    print (arr)
+    print("Element not found")
+else:
+    print (arr)
+    print("Element found at index: ",result)
 ```
+##Sample Input and Output
+![linearsearch_output](https://user-images.githubusercontent.com/118707761/214642524-482a935b-ab68-4429-a64b-9c5ff5271ab0.png)
 
 
+![iretavite_output](https://user-images.githubusercontent.com/118707761/214642606-28801102-fc93-40c3-a244-cc9e550a92c6.png)
 
 
-
-```
-## Sample Input and Output
-
-
-
-
+![recursive_output](https://user-images.githubusercontent.com/118707761/214642730-86ec0069-5dc7-416e-90e0-7226ed3df299.png)
 
 
 ## Result
